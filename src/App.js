@@ -25,7 +25,7 @@ export default function App() {
 
   async function handleLikeRepository(id) {
     const likes = await api.post(`repositories/${id}/like`);
-    
+
     const projecIndex = repositorys.findIndex(project => project.id === id);
 
     var newRepo = [...repositorys];
@@ -42,9 +42,8 @@ export default function App() {
         <FlatList 
           data={repositorys}
           keyExtractor={ repository => repository.id} 
-          style={styles.repositoryContainer}
           renderItem={({item: repository}) =>  (
-            <>
+            <View style={styles.repositoryContainer}>
               <Text style={styles.repository} >{repository.title}</Text>
 
               <View style={styles.techsContainer}>
@@ -73,7 +72,7 @@ export default function App() {
               >
                 <Text style={styles.buttonText}>Curtir</Text>
               </TouchableOpacity>
-            </>
+            </ View>
           )}
         />
       </SafeAreaView>
