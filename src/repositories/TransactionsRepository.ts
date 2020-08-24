@@ -1,10 +1,15 @@
-import { uuid } from 'uuidv4';
 import Transaction from '../models/Transaction';
 
 interface Balance {
   income: number;
   outcome: number;
   total: number;
+}
+
+interface CreateTransactionDTO {
+  title: string;
+  value: number;
+  type: 'income' | 'outcome';
 }
 
 class TransactionsRepository {
@@ -38,13 +43,12 @@ class TransactionsRepository {
     return balance;
   }
 
-  public create({ title, value, type }: Omit<Transaction, 'id'>): Transaction {
-    const transaction = {
-      id: uuid(),
+  public create({ title, value, type }: CreateTransactionDTO): Transaction {
+    const transaction = new Transaction({
       title,
       value,
       type,
-    };
+    });
 
     this.transactions.push(transaction);
 
