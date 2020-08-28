@@ -54,6 +54,8 @@ class ImportTransactionsService {
       transactions.push(insertedTransaction);
     }
 
+    await fs.promises.unlink(filePath);
+
     return transactions;
   }
 }
