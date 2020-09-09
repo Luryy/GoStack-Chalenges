@@ -1,7 +1,8 @@
 <img alt="GoStack" src="https://storage.googleapis.com/golden-wind/bootcamp-gostack/header-desafios-new.png" />
 
 <h3 align="center">
-  Desafio 07: GoFinances Web
+  Desafio 07: GoFinances Web<br/>
+  Resolvido :white_check_mark:
 </h3>
 
 <blockquote align="center">“Não espere resultados brilhantes se suas metas não forem claras”!</blockquote>
