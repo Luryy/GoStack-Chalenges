@@ -21,13 +21,13 @@ class ProductsRepository implements IProductsRepository {
     price,
     quantity,
   }: ICreateProductDTO): Promise<Product> {
-    const product = await this.ormRepository.create({
+    const product = this.ormRepository.create({
       name,
       price,
       quantity,
     });
 
-    this.ormRepository.save(product);
+    await this.ormRepository.save(product);
 
     return product;
   }
@@ -46,7 +46,7 @@ class ProductsRepository implements IProductsRepository {
 
   public async updateQuantity(
     products: IUpdateProductsQuantityDTO[],
-  ): Promise<Product[]> {
+  ): Promise<void> {
     // TODO
   }
 }
