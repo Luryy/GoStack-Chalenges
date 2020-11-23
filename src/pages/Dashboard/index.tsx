@@ -49,15 +49,15 @@ const Dashboard: React.FC = () => {
   async function handleUpdateFood(
     food: Omit<IFoodPlate, 'id' | 'available'>,
   ): Promise<void> {
-    Object.assign(food, {
-      available: editingFood.available,
-      id: editingFood.id,
+    const response = await api.put(`/foods/${editingFood.id}`, {
+      ...editingFood,
+      ...food,
     });
-    await api.put(`/foods/${editingFood.id}`, food);
-    const foodIndex = foods.findIndex(foodMap => foodMap.id === editingFood.id);
-    const newFoods = [...foods];
-    newFoods[foodIndex] = food as IFoodPlate;
-    setFoods(newFoods);
+    setFoods(
+      foods.map(foodMap =>
+        foodMap.id === response.data.id ? response.data : foodMap,
+      ),
+    );
   }
 
   async function handleDeleteFood(id: number): Promise<void> {
