@@ -28,3 +28,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ---
 
 Feito com 💜 by Rocketseat :wave: [Entre na nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
+
+_Veja como juntar repositórios separados sem peder o histórico de commits_ [nesse tutorial](https://lucas-yuri.medium.com/merging-git-repositories-without-lose-commits-history-665710a13b43)
